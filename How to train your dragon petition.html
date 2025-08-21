@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>How to train your dragons did it wrong</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #counter {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <p>As we all know how to train your dragon ended on toothless parting from hiccup. Well I have an idea what if the hidden world was different? And toothless never died.</p>
+
+  <p>Here this was a sad ending and I think people should not just go along with this. So just sign this petition to change this</p>
+
+    <p>Now what is the hidden world was better and dragons could be better we coluld all do with the change. Sign it and hope for a better ending and a better hidden world</p>
+
+  <button id="signButton">Sign Petition</button>
+  <div id="counter">People signed: 0</div>
+
+  <script>
+    // Load saved names from localStorage or start with empty array
+    let signers = JSON.parse(localStorage.getItem('signers') || '[]');
+    const signButton = document.getElementById('signButton');
+    const counterDiv = document.getElementById('counter');
+
+    // Update counter on page load
+    counterDiv.textContent = `People signed: ${signers.length}`;
+
+    signButton.addEventListener('click', () => {
+      const firstName = prompt('Please enter your first name:');
+      if (firstName && firstName.trim() !== '') {
+        const trimmedName = firstName.trim();
+        signers.push(trimmedName);
+        localStorage.setItem('signers', JSON.stringify(signers));
+        counterDiv.textContent = `People signed: ${signers.length}`;
+        alert(`Thank you for signing, ${trimmedName}!`);
+      } else {
+        alert('Please enter a valid first name to sign.');
+      }
+    });
+  </script>
+
+</body>
+</html>
